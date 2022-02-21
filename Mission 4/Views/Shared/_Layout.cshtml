@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mission_4</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="h3">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <a class="nav-link" asp-controller="Home" asp-action="JHFilmCollection">Home</a>
+           <a class="nav-link" asp-controller="Home" asp-action="Podcast">My Podcast</a>
+           <a class="nav-link" asp-controller="Home" asp-action="Form">Movie Form</a>
+        </nav>
+       
+    </div>
+    <div> 
+        @RenderBody()
+    </div>
+</body>
+</html>
