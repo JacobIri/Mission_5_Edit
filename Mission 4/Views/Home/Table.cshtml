@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Movie Records Table";
+}
+
+@model List<FormResponse>
+
+    <div class="px-5 pt-5 table-responsive-sm">
+        <table class="table table-bordered table-striped table-dark">
+            <thead class="thead-dark font-weight-bold">
+                <tr>
+                    <td scope="col">Movie Title</td>
+                    <td scope="col">Year</td>
+                    <td scope="col">Director</td>
+                    <td scope="col">Category</td>
+                    <td scope="col">MPAA Rating</td>
+                    <td scope="col">Edited Version</td>
+                    <td scope="col">Lent to</td>
+                    <td scope="col">Notes</td>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.Title</td>
+                        <td>@x.Year</td>
+                        <td>@x.Director</td>
+                        <td>@x.Category.CategoryName</td>
+                        <td>@x.Rating</td>
+                        <td>@x.Edited</td>
+                        <td>@x.LentTo</td>
+                        <td>@x.Notes</td>
+                        @* Note: asp-route-FormId shows everything in post as "?FromId=2" whereas asp-route-id shows "/2" unless you edit the endpoints *@
+                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.FormId">Edit</a></td>
+                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.FormId">Delete</a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>

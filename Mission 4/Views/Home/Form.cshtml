@@ -11,38 +11,37 @@
 <br />
 <div class="d-flex justify-content-center">
     <form method="post">
+        <div class="text-danger font-weight-bold bg-light" asp-validation-summary="All"></div>
         <div class="form-group">
             <label asp-for="Title">Movie Title: </label>
-            <input asp-for="Title" required />
+            <input asp-for="Title"/>
             <br />
         </div>
         <div class="form-group">
             <label asp-for="Year">Year:</label>
-            <input asp-for="Year" required />
+            <input asp-for="Year"/>
             <br />
         </div>
         <div class="form-group">
             <label asp-for="Director">Director:</label>
-            <input asp-for="Director" required />
+            <input asp-for="Director" />
             <br />
         </div>
         <div class="form-group">
-            <label asp-for="Category">Category:</label>
-            <select asp-for="Category" required>
-                <option value="Action/Adventure">Action/Adventure</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Drama">Drama</option>
-                <option value="Family">Family</option>
-                <option value="Horror/Suspense">Horror/Suspense</option>
-                <option value="Miscellaneous">Miscellaneous</option>
-                <option value="Television">Television</option>
-                <option value="VHS">VHS</option>
+            <label asp-for="CategoryId">Category:</label>
+            <select asp-for="CategoryId">
+                <option value="">Select Movie Category</option>
+                @foreach (Category c in ViewBag.CategoryEntry)
+                {
+                    <option value="@c.CategoryID ">@c.CategoryName</option>
+                }
+
             </select>
             <br />
         </div>
         <div class="form-group">
             <label asp-for="Rating">MPAA Rating:</label>
-            <select asp-for="Rating" required>
+            <select asp-for="Rating">
                 <option value="NR">NR</option>
                 <option value="G">G</option>
                 <option value="PG">PG</option>
@@ -66,9 +65,11 @@
         </div>
         <div class="form-group">
             <label asp-for="Notes">Additional Notes:</label>
-            <input asp-for="Notes" maxlength="25"/>
+            <input asp-for="Notes" maxlength="25" />
             <br />
         </div>
+
+
         <button type="submit" class="btn btn-outline-light btn-large">Submit Movie</button>
     </form>
 </div>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+@model FormResponse
+    <div class="px-5">
+        <h2> Confirm Deletion </h2>
+        <h2> Are you sure you want to delete the record for @Model.Title, @Model.Year?</h2>
+        <form method="post" asp-controller="Home" asp-action="Delete">
+            <button type="submit">Delete</button>
+            <a asp-controller="Home" asp-action="Table" class="btn btn-primary">Cancel</a>
+            <input type="hidden" asp-for="FormId" />
+        </form>
+    </div>
